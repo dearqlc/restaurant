@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>基本资料</title>
+    <link href="../../static/layui/css/layui.css" media="all" rel="stylesheet"
+          th:href="@{/layuiadmin/layui/css/layui.css}"/>
+    <style>
+        body {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-card">
+    <div class="layui-card-body">
+        <form action="" class="layui-form layui-form-pane" lay-filter="component-form-element">
+            <div class="layui-form-item">
+                <div class="layui-input-inline layui-hide">
+                    <input autocomplete="off" class="layui-input" name="userId" th:value="${currentUser.userId}"
+                           type="text">
+                </div>
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                        <label class="layui-form-label">姓名</label>
+                        <div class="layui-input-block">
+                            <input autocomplete="off" class="layui-input" lay-verify="required" name="name"
+                                   placeholder=""
+                                   th:value="${currentUser.name}" type="text">
+                        </div>
+                    </div>
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                        <label class="layui-form-label">性别</label>
+                        <div class="layui-input-block">
+                            <th:block th:if="${currentUser.gender}=='男'">
+                                <input checked name="gender" title="男" type="radio" value="男">
+                                <input name="gender" title="女" type="radio" value="女">
+                            </th:block>
+                            <th:block th:if="${currentUser.gender}=='女'">
+                                <input name="gender" title="男" type="radio" value="男">
+                                <input checked name="gender" title="女" type="radio" value="女">
+                            </th:block>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                        <label class="layui-form-label">电话</label>
+                        <div class="layui-input-block">
+                            <input autocomplete="off" class="layui-input" lay-verify="required|phone" name="phone"
+                                   placeholder="" th:value="${currentUser.phone}" type="text">
+                        </div>
+                    </div>
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                        <label class="layui-form-label">邮箱</label>
+                        <div class="layui-input-block">
+                            <input autocomplete="off" class="layui-input" lay-verify="required|email" name="email"
+                                   placeholder="" th:value="${currentUser.email}" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                        <label class="layui-form-label">生日</label>
+                        <div class="layui-input-block">
+                            <input autocomplete="off" class="layui-input" id="birthday" lay-verify="required"
+                                   name="birthday" placeholder="" th:value="${birthday}" type="text">
+                        </div>
+                    </div>
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                        <label class="layui-form-label">身份证号</label>
+                        <div class="layui-input-block">
+                            <input autocomplete="off" class="layui-input" lay-verify="identity" name="IdNumber"
+                                   placeholder="" th:value="${currentUser.idNumber}" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md8">
+                        <div class="layui-form-text">
+                            <label class="layui-form-label">家庭住址</label>
+                            <div class="layui-input-block">
+                                <textarea class="layui-textarea" lay-verify="required" name="address"
+                                          placeholder="请输入内容" th:text="${currentUser.address}"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <input class="layui-btn" id="component-form-element" lay-filter="component-form-element" lay-submit
+                       type="button"
+                       value="修改">
+                <button class="layui-btn layui-btn-primary" type="reset">重置</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<script src="../../static/layuiadmin/layui/layui.js" th:src="@{/layuiadmin/layui/layui.js}"></script>
+<script>
+    layui.use(['form', 'laydate', "layer"], function () {
+        var $ = layui.$
+            , admin = layui.admin
+            , element = layui.element
+            , form = layui.form
+            , laydate = layui.laydate
+            , layer = layui.layer;
+
+        //获取from表单提交事件
+        //此处submit中的值是lay-filter
+        form.on('submit(component-form-element)', function (data) {
+            var field = data.field; //获取提交的字段
+            //提交 Ajax 成功后，静态更新表格中的数据
+            $.ajax({
+                url: "/restaurant/user/saveEdit.do",
+                type: "post",
+                dataType: "JSON",
+                data: field,
+                success: function (result) {
+                    if (result.code == 200) {
+                        layer.msg("修改成功!", {icon: 6});
+                    } else {
+                        layer.alert(result.msg, {
+                            title: '提交结果'
+                            , anim: 6
+                        });
+                    }
+                }
+            });
+        });
+        //日期选择器
+        laydate.render({
+            elem: '#birthday'
+            , format: 'yyyy-MM-dd' //可任意组合
+        });
+    });
+</script>
+</body>
+</html>

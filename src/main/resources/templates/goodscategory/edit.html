@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改菜品类型</title>
+    <link href="../../static/layui/css/layui.css" media="all" rel="stylesheet"
+          th:href="@{/layuiadmin/layui/css/layui.css}"/>
+    <style>
+        body {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-card">
+    <div class="layui-card-body">
+        <form action="" class="layui-form layui-form-pane" lay-filter="component-form-element">
+            <div class="layui-form-item">
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-input-inline layui-hide">
+                        <input autocomplete="off" class="layui-input" name="categoryId" th:value="${goodsCategory.categoryId}"
+                               type="text">
+                    </div>
+                    <div class="layui-col-xs12 layui-col-sm12 layui-col-md4">
+                        <label class="layui-form-label">类型名称</label>
+                        <div class="layui-input-block">
+                            <input autocomplete="off" class="layui-input" lay-verify="required"
+                                   name="categoryName" placeholder="" th:value="${goodsCategory.categoryName}" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item layui-hide">
+                <input id="LAY-user-front-submit" lay-filter="LAY-user-front-submit" lay-submit type="button"
+                       value="确认">
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<script src="../../static/layuiadmin/layui/layui.js" th:src="@{/layuiadmin/layui/layui.js}"></script>
+<script>
+    layui.use(['form', 'slider', "layer"], function () {
+        var $ = layui.$
+            , form = layui.form
+            , slider = layui.slider;
+
+        //获取from表单提交事件
+        //此处submit中的值是lay-filter
+        form.on('submit(component-form-element)', function (data) {
+        });
+    });
+</script>
+</body>
+</html>

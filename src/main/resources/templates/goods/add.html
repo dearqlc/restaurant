@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加菜品</title>
+    <link href="../../static/layui/css/layui.css" media="all" rel="stylesheet"
+          th:href="@{/layuiadmin/layui/css/layui.css}"/>
+    <style>
+        body {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-card">
+    <div class="layui-card-body">
+        <form action="" class="layui-form layui-form-pane" lay-filter="component-form-element">
+            <div class="layui-form-item">
+                <div class="layui-row layui-col-space5">
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                        <label class="layui-form-label">菜品名称</label>
+                        <div class="layui-input-block">
+                            <input autocomplete="off" class="layui-input" id="goodsName" lay-verify="required" name="goodsName"
+                                   placeholder="菜名"
+                                   type="text">
+                        </div>
+                    </div>
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                        <label class="layui-form-label">菜品类型</label>
+                        <div class="layui-input-block">
+                            <select name="categoryId">
+                                <th:block th:each="goodsCategory:${goodsCategoryList}">
+                                    <option th:text="${goodsCategory.categoryName}"
+                                            th:value="${goodsCategory.categoryId}"></option>
+                                </th:block>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-row layui-col-space5">
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                        <label class="layui-form-label">菜品成本</label>
+                        <div class="layui-input-block">
+                            <input autocomplete="off" class="layui-input" lay-verify="required|number|positive_number" name="cost"
+                                   placeholder="" type="text">
+                        </div>
+                    </div>
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                        <label class="layui-form-label">菜品价格</label>
+                        <div class="layui-input-block">
+                            <input autocomplete="off" class="layui-input" lay-verify="required|number|positive_number" name="price"
+                                   placeholder="" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-row layui-col-space5">
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                        <label class="layui-form-label">销售状态</label>
+                        <div class="layui-input-block">
+                            <input checked name="soldState" title="未售完" type="radio" value="0">
+                            <input name="soldState" title="已售完" type="radio" value="1">
+                        </div>
+                    </div>
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                        <label class="layui-form-label">上架状态</label>
+                        <div class="layui-input-block">
+                            <input checked name="putawayStatus" title="下架" type="radio" value="0">
+                            <input name="putawayStatus" title="上架" type="radio" value="1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-row layui-col-space5">
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                        <label class="layui-form-label">库存量</label>
+                        <div class="layui-input-block">
+                            <input autocomplete="off" class="layui-input" lay-verify="required|int_number" name="storeCount"
+                                   placeholder="" type="text">
+                        </div>
+                    </div>
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                        <label class="layui-form-label">类型状态</label>
+                        <div class="layui-input-block">
+                            <select name="typeState">
+                                <option selected value="1">普通菜</option>
+                                <option value="2">新菜</option>
+                                <option value="3">特色菜</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-row layui-col-space5">
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                        <div class="layui-form-text">
+                            <label class="layui-form-label">菜品描述</label>
+                            <div class="layui-input-block">
+                        <textarea class="layui-textarea" lay-verify="required" name="description"
+                                  placeholder="请输入内容"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                        <label class="layui-form-label">菜品照片</label>
+                        <!--上传按钮-->
+                        <button class="layui-btn" id="upload1" type="button">上传图片</button>
+                        <!--隐藏的input-->
+                        <input id="img_url" name="imgUrl" type="hidden" value=""/>
+                        <!--预览区域-->
+                        <div class="layui-upload-list">
+                            <img class="layui-upload-img" height="132px" id="demo1" width="98px"/>
+                            <p id="demoText1"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item layui-hide">
+                <input id="LAY-user-front-submit" lay-filter="LAY-user-front-submit" lay-submit
+                       type="button" value="确认">
+            </div>
+        </form>
+    </div>
+</div>
+<script src="../../static/layuiadmin/layui/layui.js" th:src="@{/layuiadmin/layui/layui.js}"></script>
+<script>
+    layui.use(['form', 'laydate', "layer"], function () {
+        var $ = layui.$
+            , admin = layui.admin
+            , element = layui.element
+            , form = layui.form
+            , laydate = layui.laydate
+            , layer = layui.layer;
+
+        //获取from表单提交事件
+        //此处submit中的值是lay-filter
+        form.on('submit(component-form-element)', function (data) {
+        });
+        //自定义验证
+        form.verify({
+            //验证正数
+            positive_number: function (value, item) {
+                if (parseFloat(value) < 0) {
+                    return '必须为正数';
+                }
+            },
+            int_number: function (value, item) {
+                if (!/^(0|\+?[1-9][0-9]*)$/.test(value)) {
+                    return '必须为正整数';
+                }
+            }
+        });
+    });
+</script>
+<!--上传图片的js代码-->
+<script th:inline="javascript" type="text/javascript">
+    layui.use('upload', function () {
+        var upload = layui.upload
+            , $ = layui.jquery;
+        var uploadInst1 = upload.render({
+            elem: '#upload1' //绑定元素
+            , url: '/restaurant/upload/img.do'//上传接口
+            , field: 'image'
+            , before: function (obj) {
+                //预读本地文件示例，不支持ie8
+                obj.preview(function (index, file, result) {
+                    $('#demo1').attr('src', result); //图片链接（base64）
+                });
+            }
+            , done: function (res) {
+                //如果上传失败
+                if (res.code !== 200) {
+                    return layer.msg('上传失败', {icon: 2, anim: 6});
+                }
+                //上传成功
+                layer.msg("上传成功", {icon: 6});
+                document.getElementById("img_url").value = res.data.src;
+            }
+            , error: function () {
+                //演示失败状态，并实现重传
+                var demoText1 = $('#demoText1');
+                demoText1.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
+                demoText1.find('.demo-reload').on('click', function () {
+                    uploadInst1.upload();
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

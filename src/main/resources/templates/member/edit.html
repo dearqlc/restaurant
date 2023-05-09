@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑会员</title>
+    <link href="../../static/layui/css/layui.css" media="all" rel="stylesheet"
+          th:href="@{/layuiadmin/layui/css/layui.css}"/>
+</head>
+<style>
+    body {
+        margin: 10px;
+    }
+</style>
+<body>
+<div class="layui-card">
+    <div class="layui-card-body">
+        <form action="" class="layui-form layui-form-pane" lay-filter="component-form-element">
+            <div class="layui-form-item">
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                        <label class="layui-form-label">姓名</label>
+                        <div class="layui-input-block">
+                            <input autocomplete="off" class="layui-input" lay-verify="required" name="name"
+                                   placeholder=""
+                                   th:value="${member.name}" type="text">
+                        </div>
+                    </div>
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                        <label class="layui-form-label">会员类型</label>
+                        <div class="layui-input-block">
+                            <select disabled name="mcId">
+                                <th:block th:each="memberCategory:${memberCategoryList}">
+                                    <th:block th:if="${memberCategory.mcId} eq ${member.memberCategory.mcId}">
+                                        <option selected th:text="${memberCategory.mcName}"
+                                                th:value="${memberCategory.mcId}"></option>
+                                    </th:block>
+                                    <th:block th:if="${memberCategory.mcId} neq ${member.memberCategory.mcId}">
+                                        <option th:text="${memberCategory.mcName}"
+                                                th:value="${memberCategory.mcId}"></option>
+                                    </th:block>
+                                </th:block>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-row layui-col-space15">
+                        <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                            <label class="layui-form-label">电话</label>
+                            <div class="layui-input-block">
+                                <input autocomplete="off" class="layui-input" lay-verify="required|phone" name="phone"
+                                       placeholder="" th:value="${member.phone}" type="text">
+                            </div>
+                        </div>
+                        <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                            <label class="layui-form-label">生日</label>
+                            <div class="layui-input-block">
+                                <input autocomplete="off" class="layui-input" id="birthday" lay-verify="required"
+                                       name="birthday" placeholder="" th:value="${birthday}" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-inline layui-hide">
+                        <input autocomplete="off" class="layui-input" name="memberId" th:value="${member.memberId}"
+                               type="text">
+                    </div>
+                    <div class="layui-row layui-col-space15">
+                        <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                            <label class="layui-form-label">性别</label>
+                            <div class="layui-input-block">
+                                <th:block th:if="${member.gender} eq '男'">
+                                    <input checked name="gender" title="男" type="radio" value="男">
+                                    <input name="gender" title="女" type="radio" value="女">
+                                </th:block>
+                                <th:block th:if="${member.gender} eq '女'">
+                                    <input name="gender" title="男" type="radio" value="男">
+                                    <input checked name="gender" title="女" type="radio" value="女">
+                                </th:block>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item layui-hide">
+                <input id="LAY-user-front-submit" lay-filter="LAY-user-front-submit" lay-submit type="button"
+                       value="确认">
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<script src="../../static/layuiadmin/layui/layui.js" th:src="@{/layuiadmin/layui/layui.js}"></script>
+<script>
+    layui.use(['form', 'laydate', "layer"], function () {
+        var $ = layui.$
+            , admin = layui.admin
+            , element = layui.element
+            , form = layui.form
+            , laydate = layui.laydate
+            , layer = layui.layer;
+
+        //获取from表单提交事件
+        //此处submit中的值是lay-filter
+        form.on('submit(component-form-element)', function (data) {
+        });
+        //日期选择器
+        laydate.render({
+            elem: '#birthday'
+            , format: 'yyyy-MM-dd' //可任意组合
+        });
+    });
+</script>
+</body>
+</html>

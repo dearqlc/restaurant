@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加用户</title>
+    <link href="../../static/layui/css/layui.css" media="all" rel="stylesheet"
+          th:href="@{/layuiadmin/layui/css/layui.css}"/>
+    <style>
+        body {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-card">
+    <div class="layui-card-body">
+        <form action="" class="layui-form layui-form-pane" lay-filter="component-form-element">
+            <div class="layui-form-item">
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                        <label class="layui-form-label">会员号</label>
+                        <div class="layui-input-block">
+                            <input autocomplete="off" class="layui-input" lay-verify="required|phone" name="memberCode"
+                                   placeholder="电话号作会员号" type="text">
+                        </div>
+                    </div>
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                        <label class="layui-form-label">角色</label>
+                        <div class="layui-input-block">
+                            <select name="mcId">
+                                <th:block th:each="memberCategory:${memberCategoryList}">
+                                    <option th:text="${memberCategory.mcName}"
+                                            th:value="${memberCategory.mcId}"></option>
+                                </th:block>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                        <label class="layui-form-label">姓名</label>
+                        <div class="layui-input-block">
+                            <input autocomplete="off" class="layui-input" lay-verify="required" name="name" placeholder=""
+                                   type="text">
+                        </div>
+                    </div>
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                        <label class="layui-form-label">性别</label>
+                        <div class="layui-input-block">
+                            <input name="gender" title="男" type="radio" value="男">
+                            <input checked name="gender" title="女" type="radio" value="女">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                        <label class="layui-form-label">电话</label>
+                        <div class="layui-input-block">
+                            <input autocomplete="off" class="layui-input" lay-verify="required|phone" name="phone"
+                                   placeholder=""
+                                   type="text">
+                        </div>
+                    </div>
+                    <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+                        <label class="layui-form-label">生日</label>
+                        <div class="layui-input-block">
+                            <input autocomplete="off" class="layui-input" id="birthday" lay-verify="required" name="birthday"
+                                   placeholder="" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item layui-hide">
+                <input id="LAY-user-front-submit" lay-filter="LAY-user-front-submit" lay-submit type="button"
+                       value="确认">
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<script src="../../static/layuiadmin/layui/layui.js" th:src="@{/layuiadmin/layui/layui.js}"></script>
+<script>
+    layui.use(['form', 'laydate', "layer"], function () {
+        var $ = layui.$
+            , admin = layui.admin
+            , element = layui.element
+            , form = layui.form
+            , laydate = layui.laydate
+            , layer = layui.layer;
+
+        //获取from表单提交事件
+        //此处submit中的值是lay-filter
+        form.on('submit(component-form-element)', function (data) {
+        });
+        //日期选择器
+        laydate.render({
+            elem: '#birthday'
+            , format: 'yyyy-MM-dd' //可任意组合
+        });
+    });
+</script>
+</body>
+</html>
