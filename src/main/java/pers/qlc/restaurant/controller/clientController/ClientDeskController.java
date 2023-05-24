@@ -96,4 +96,5 @@ public class ClientDeskController {
         CustomPageInfo<Goods> resultPage = goodsService.findPage(pageInfo);
         return ResultUtil.success(resultPage.getList(), resultPage.getTotal());
     }
+
 }

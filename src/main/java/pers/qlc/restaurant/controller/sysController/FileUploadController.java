@@ -20,7 +20,9 @@ import java.io.File;
 @Controller
 @MultipartConfig
 public class FileUploadController {
+
     private final static Logger logger = LoggerFactory.getLogger(FileUploadController.class);
+
     //图片上传基地址
     @Value("${web.upload-image-path}")
     private String location;
@@ -48,4 +50,5 @@ public class FileUploadController {
             return ResultUtil.error(ResultEnum.IMAGE_UPLOAD_FAIL);
         }
     }
+
 }

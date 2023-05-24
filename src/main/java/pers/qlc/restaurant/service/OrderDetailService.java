@@ -9,6 +9,7 @@ import java.util.List;
  * 订单明细业务逻辑接口
  */
 public interface OrderDetailService {
+
     /**
      * 根据订单id查询订单明细
      *
@@ -33,4 +34,5 @@ public interface OrderDetailService {
     void deleteByIds(String strIds);
 
     List<OrderDetail> findOrderDetailsByDeskCode(String deskCode);
+
 }

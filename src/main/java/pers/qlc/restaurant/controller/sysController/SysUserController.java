@@ -21,6 +21,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 public class SysUserController {
+
     @Autowired
     private SysUserService sysUserService;
 
@@ -167,4 +168,5 @@ public class SysUserController {
         sysUserService.updatePwd(user);
         return ResultUtil.success();
     }
+
 }

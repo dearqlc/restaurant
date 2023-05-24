@@ -92,4 +92,5 @@ public class CustomRealm extends AuthorizingRealm {
         info.setStringPermissions(permissions);
         return info;
     }
+
 }

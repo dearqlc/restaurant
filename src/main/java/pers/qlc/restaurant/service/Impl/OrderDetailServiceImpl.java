@@ -24,8 +24,10 @@ import java.util.List;
 @Service
 @Transactional
 public class OrderDetailServiceImpl implements OrderDetailService {
+
     @Autowired
     private OrderDetailDao orderDetailDao;
+
     @Autowired
     private OrderDao orderDao;
 
@@ -107,4 +109,5 @@ public class OrderDetailServiceImpl implements OrderDetailService {
         orderDetail.setOrder(order);
         return orderDetailDao.findPage(orderDetail);
     }
+
 }

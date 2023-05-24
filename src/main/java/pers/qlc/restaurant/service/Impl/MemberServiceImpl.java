@@ -20,8 +20,10 @@ import java.util.List;
 @Service
 @Transactional
 public class MemberServiceImpl implements MemberService {
+
     @Autowired
     private MemberDao memberDao;
+
     @Autowired
     private MemberCategoryDao memberCategoryDao;
 
@@ -110,4 +112,5 @@ public class MemberServiceImpl implements MemberService {
             throw new CustomException(ResultEnum.DEL_DB_FAIL);
         }
     }
+
 }

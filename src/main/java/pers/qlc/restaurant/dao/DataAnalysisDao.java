@@ -57,4 +57,5 @@ public interface DataAnalysisDao {
      * @return
      */
     List<PeopleChart> findPeopleByHours();
+
 }

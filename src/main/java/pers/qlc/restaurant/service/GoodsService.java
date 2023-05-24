@@ -4,6 +4,7 @@ import pers.qlc.restaurant.entity.CustomPageInfo;
 import pers.qlc.restaurant.entity.Goods;
 
 public interface GoodsService {
+
     /**
      * 分页查询以及分页条件查询
      *
@@ -40,4 +41,5 @@ public interface GoodsService {
      * @param strIds
      */
     void deleteByIds(String strIds);
+
 }

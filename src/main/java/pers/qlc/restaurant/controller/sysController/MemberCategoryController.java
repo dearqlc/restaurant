@@ -17,6 +17,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/membercategory")
 public class MemberCategoryController {
+
     @Autowired
     private MemberCategoryService memberCategoryService;
 
@@ -80,4 +81,5 @@ public class MemberCategoryController {
         result.setCount((long) categoryList.size());
         return result;
     }
+
 }

@@ -22,6 +22,7 @@ import java.util.List;
 @Service
 @Transactional
 public class GoodsServiceImpl implements GoodsService {
+
     @Autowired
     private GoodsDao goodsDao;
 
@@ -108,4 +109,5 @@ public class GoodsServiceImpl implements GoodsService {
             throw new CustomException(ResultEnum.DEL_DB_FAIL);
         }
     }
+
 }

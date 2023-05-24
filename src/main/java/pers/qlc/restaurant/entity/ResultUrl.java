@@ -1,6 +1,7 @@
 package pers.qlc.restaurant.entity;
 
 public class ResultUrl {
+
     private String src;
 
     public String getSrc() {
@@ -10,4 +11,5 @@ public class ResultUrl {
     public void setSrc(String src) {
         this.src = src;
     }
+
 }

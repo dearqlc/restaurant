@@ -5,7 +5,9 @@ import pers.qlc.restaurant.entity.UserRole;
 
 @Mapper
 public interface UserRoleDao {
+
     int insert(UserRole userRole);
 
     int update(UserRole userRole);
+
 }

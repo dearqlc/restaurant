@@ -13,6 +13,7 @@ import java.util.List;
  */
 @Mapper
 public interface GoodsCategoryDao extends tk.mybatis.mapper.common.Mapper<GoodsCategory> {
+
     List<GoodsCategory> findAll();
 
     GoodsCategory findById(Long id);
@@ -24,4 +25,5 @@ public interface GoodsCategoryDao extends tk.mybatis.mapper.common.Mapper<GoodsC
     int deleteByIds(List<Long> idList);
 
     GoodsCategory findByCategoryName(GoodsCategory goodsCategory);
+
 }

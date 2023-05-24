@@ -4,6 +4,7 @@ import org.apache.shiro.authc.AuthenticationException;
 import pers.qlc.restaurant.Enums.ResultEnum;
 
 public class CustomAuthenticationException extends AuthenticationException {
+
     private Integer code;
 
     public CustomAuthenticationException(ResultEnum resultEnum) {
@@ -18,4 +19,5 @@ public class CustomAuthenticationException extends AuthenticationException {
     public void setCode(Integer code) {
         this.code = code;
     }
+
 }

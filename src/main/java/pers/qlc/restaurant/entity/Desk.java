@@ -73,4 +73,5 @@ public class Desk extends BaseBean {
                 ", idleStatus=" + idleStatus +
                 '}';
     }
+
 }

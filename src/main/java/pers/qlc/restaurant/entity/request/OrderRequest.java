@@ -1,7 +1,9 @@
 package pers.qlc.restaurant.entity.request;
 
 public class OrderRequest {
+
     private Long goodsId;
+
     private Integer count;
 
     public Long getGoodsId() {
@@ -27,4 +29,5 @@ public class OrderRequest {
                 ", count=" + count +
                 '}';
     }
+
 }

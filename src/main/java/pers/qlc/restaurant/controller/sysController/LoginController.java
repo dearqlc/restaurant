@@ -30,6 +30,7 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("/sysuser")
 public class LoginController {
+
     @Autowired
     private SysUserService sysUserService;
 
@@ -107,4 +108,5 @@ public class LoginController {
     public String eorror() {
         return "error/403";
     }
+
 }

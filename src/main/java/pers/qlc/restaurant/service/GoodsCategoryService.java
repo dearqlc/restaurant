@@ -9,6 +9,7 @@ import java.util.List;
  * 菜品类型管理
  */
 public interface GoodsCategoryService {
+
     /**
      * 查询所有菜品类型
      *
@@ -44,4 +45,5 @@ public interface GoodsCategoryService {
      * @param strIds
      */
     void deleteByIds(String strIds);
+
 }

@@ -3,10 +3,14 @@ package pers.qlc.restaurant.entity.chart;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class MemberChart {
+
     private String categoryName;
+
     private Integer count;
+
     @JsonIgnore
     private Integer day;
+
     private String date;
 
     public String getCategoryName() {
@@ -50,4 +54,5 @@ public class MemberChart {
                 ", date='" + date + '\'' +
                 '}';
     }
+
 }

@@ -5,50 +5,62 @@ import java.util.List;
 import java.util.Map;
 
 public class SysMenu extends BaseBean {
+
     /**
      * 功能菜单id
      */
     private Long menuId;
+
     /**
      * 菜单名
      */
     private String menuName;
+
     /**
      * 父节点id
      */
     private Long parentId;
+
     /**
      * 父节点id集
      */
     private Long parentIds;
+
     /**
      * 是否显示
      */
     private Integer isShow;
+
     /**
      * 权限
      */
     private String permission;
+
     /**
      * 菜单链接
      */
     private String menuHref;
+
     /**
      * 菜单图标
      */
     private String menuIcon;
+
     /**
      * 菜单权重
      */
     private Integer weight;
+
     /**
      * 菜单描述
      */
     private String description;
+
     /**
      * 查询条件
      */
     private Map<String, Object> condition;
+
     /**
      * 子菜单
      */
@@ -169,4 +181,5 @@ public class SysMenu extends BaseBean {
                 ", condition=" + condition +
                 '}';
     }
+
 }

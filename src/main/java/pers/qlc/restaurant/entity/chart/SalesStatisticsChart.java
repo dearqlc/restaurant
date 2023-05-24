@@ -6,11 +6,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * 销售状况用到实体
  */
 public class SalesStatisticsChart {
+
     @JsonIgnore
     private Integer day;
+
     private String date;
+
     private Double mustPay;
+
     private Double totalProfit;
+
     private Integer totalOrder;
 
     public Integer getDay() {
@@ -63,4 +68,5 @@ public class SalesStatisticsChart {
                 ", totalOrder=" + totalOrder +
                 '}';
     }
+
 }

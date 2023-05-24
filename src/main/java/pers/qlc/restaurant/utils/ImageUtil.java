@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class ImageUtil {
+
     public static String saveImage(MultipartFile multipartFile, String path) throws IOException {
         //文件路径
         File filePath = new File(path);
@@ -22,4 +23,5 @@ public class ImageUtil {
         multipartFile.transferTo(file);
         return fileName;
     }
+
 }

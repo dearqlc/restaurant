@@ -13,6 +13,7 @@ import java.util.List;
  */
 @Mapper
 public interface SysMenuDao extends tk.mybatis.mapper.common.Mapper<SysMenu> {
+
     SysMenu findById(Long menuId);
 
     /**
@@ -22,4 +23,5 @@ public interface SysMenuDao extends tk.mybatis.mapper.common.Mapper<SysMenu> {
      * @return
      */
     List<SysMenu> findList(SysMenu sysMenu);
+
 }

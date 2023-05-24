@@ -15,6 +15,7 @@ import java.util.List;
  */
 
 public interface CookAndServingService {
+
     /**
      * 制菜任务分页查询
      *
@@ -51,4 +52,5 @@ public interface CookAndServingService {
      * @param orderDetail
      */
     void updateStatusByOdIds(OrderDetail orderDetail);
+
 }

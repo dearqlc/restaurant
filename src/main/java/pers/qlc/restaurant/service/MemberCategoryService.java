@@ -5,6 +5,7 @@ import pers.qlc.restaurant.entity.MemberCategory;
 import java.util.List;
 
 public interface MemberCategoryService {
+
     /**
      * 查询所有会员类型
      *
@@ -40,4 +41,5 @@ public interface MemberCategoryService {
      * @param strIds
      */
     void deleteByIds(String strIds);
+
 }

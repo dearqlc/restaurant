@@ -23,6 +23,7 @@ import pers.qlc.restaurant.utils.ResultUtil;
  */
 @ControllerAdvice//注解定义全局异常处理类
 public class GlobalExceptionHandler {
+
     //Spring自带的日志框架Logger
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
@@ -50,4 +51,5 @@ public class GlobalExceptionHandler {
             return ResultUtil.error(ResultEnum.UNKNOWN_ERROR.getCode(), ResultEnum.UNKNOWN_ERROR.getMsg());
         }
     }
+
 }

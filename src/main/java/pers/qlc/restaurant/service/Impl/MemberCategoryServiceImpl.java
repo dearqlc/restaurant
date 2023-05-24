@@ -16,6 +16,7 @@ import java.util.List;
 @Service
 @Transactional
 public class MemberCategoryServiceImpl implements MemberCategoryService {
+
     @Autowired
     private MemberCategoryDao memberCategoryDao;
 
@@ -80,4 +81,5 @@ public class MemberCategoryServiceImpl implements MemberCategoryService {
         List<Long> idList = SplitIdsUtil.splitStrIds(strIds);
         memberCategoryDao.deleteByIds(idList);
     }
+
 }

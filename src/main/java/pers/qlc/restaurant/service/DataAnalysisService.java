@@ -5,6 +5,7 @@ import pers.qlc.restaurant.entity.chart.*;
 import java.util.List;
 
 public interface DataAnalysisService {
+
     /**
      * 查询近几天天的商品销量排行top
      * day 天数
@@ -51,4 +52,5 @@ public interface DataAnalysisService {
      * @return
      */
     List<PeopleChart> findPeopleByHours();
+
 }

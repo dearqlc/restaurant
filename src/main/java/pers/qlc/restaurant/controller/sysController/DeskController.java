@@ -66,4 +66,5 @@ public class DeskController {
         deskService.deleteByIds(strIds);
         return ResultUtil.success();
     }
+
 }

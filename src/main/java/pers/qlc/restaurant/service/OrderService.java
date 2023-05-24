@@ -13,6 +13,7 @@ import pers.qlc.restaurant.entity.Order;
  */
 
 public interface OrderService {
+
     /**
      * 添加订单
      *
@@ -56,4 +57,5 @@ public interface OrderService {
      * @param order
      */
     void settleAccounts(Order order);
+
 }

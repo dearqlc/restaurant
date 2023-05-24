@@ -18,8 +18,10 @@ import java.util.List;
 @Controller
 @RequestMapping("/order")
 public class OrderController {
+
     @Autowired
     private OrderService orderService;
+
     @Autowired
     private OrderDetailService orderDetailService;
 
@@ -98,4 +100,5 @@ public class OrderController {
         orderService.settleAccounts(order);
         return ResultUtil.success();
     }
+
 }

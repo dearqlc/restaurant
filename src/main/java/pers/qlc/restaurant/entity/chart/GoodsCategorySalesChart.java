@@ -3,8 +3,11 @@ package pers.qlc.restaurant.entity.chart;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class GoodsCategorySalesChart {
+
     private String categoryName;
+
     private Integer count;
+
     @JsonIgnore
     private Integer day;
 
@@ -40,4 +43,5 @@ public class GoodsCategorySalesChart {
                 ", day=" + day +
                 '}';
     }
+
 }

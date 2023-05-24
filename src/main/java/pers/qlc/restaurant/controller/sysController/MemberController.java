@@ -18,8 +18,10 @@ import java.util.List;
 @Controller
 @RequestMapping("/member")
 public class MemberController {
+
     @Autowired
     private MemberService memberService;
+
     @Autowired
     private MemberCategoryService memberCategoryService;
 
@@ -122,4 +124,5 @@ public class MemberController {
         Member resultMember = memberService.findMemberByMemberCode(member);
         return ResultUtil.success(resultMember);
     }
+
 }

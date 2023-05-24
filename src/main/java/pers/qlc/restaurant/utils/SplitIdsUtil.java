@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SplitIdsUtil {
+
     public static List<Long> splitStrIds(String strIds) {
         int num = strIds.indexOf(",");
         List<Long> idList = new ArrayList<>();
@@ -35,4 +36,5 @@ public class SplitIdsUtil {
         }
         return idList;
     }
+
 }

@@ -15,6 +15,7 @@ import pers.qlc.restaurant.utils.ResultUtil;
 @Controller
 @RequestMapping("/guest/client")
 public class ClientOrderController {
+
     @Autowired
     private OrderService orderService;
     @Autowired
@@ -55,4 +56,5 @@ public class ClientOrderController {
         orderDetailService.deleteByIds(ids);
         return ResultUtil.success();
     }
+
 }

@@ -13,6 +13,7 @@ import java.util.List;
  */
 @Mapper
 public interface OrderDetailDao {
+
     List<OrderDetail> findPage(OrderDetail orderDetail);
 
     List<OrderDetail> findPageByStatus(List<Integer> statusList);
@@ -30,4 +31,5 @@ public interface OrderDetailDao {
     int updateStatusByOdIds(OrderDetail orderDetail);
 
     Double countPriceByOdIds(List<Long> odIds);
+
 }

@@ -13,6 +13,7 @@ import java.util.List;
  */
 @Service
 public class DataAnalysisServiceImpl implements DataAnalysisService {
+
     @Autowired
     private DataAnalysisDao dataAnalysisDao;
 
@@ -80,4 +81,5 @@ public class DataAnalysisServiceImpl implements DataAnalysisService {
     public List<PeopleChart> findPeopleByHours() {
         return dataAnalysisDao.findPeopleByHours();
     }
+
 }

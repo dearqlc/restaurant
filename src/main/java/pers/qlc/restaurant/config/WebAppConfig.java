@@ -10,6 +10,7 @@ import javax.servlet.MultipartConfigElement;
 
 @Configuration
 public class WebAppConfig implements WebMvcConfigurer {
+
     @Value("${web.upload-image-path}")
     private String location;
 
@@ -21,4 +22,5 @@ public class WebAppConfig implements WebMvcConfigurer {
         factory.setMaxRequestSize("10MB");
         return factory.createMultipartConfig();
     }
+
 }

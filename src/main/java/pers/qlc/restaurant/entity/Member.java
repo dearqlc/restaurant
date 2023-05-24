@@ -133,4 +133,5 @@ public class Member extends BaseBean {
                 ", totalMoney=" + totalMoney +
                 '}';
     }
+
 }

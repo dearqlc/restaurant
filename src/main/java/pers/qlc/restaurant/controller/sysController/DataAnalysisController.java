@@ -18,6 +18,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/analysis")
 public class DataAnalysisController {
+
     @Autowired
     private DataAnalysisService dataAnalysisService;
 
@@ -129,4 +130,5 @@ public class DataAnalysisController {
         List<PeopleChart> result = dataAnalysisService.findPeopleByHours();
         return ResultUtil.success(result, (long) result.size());
     }
+
 }

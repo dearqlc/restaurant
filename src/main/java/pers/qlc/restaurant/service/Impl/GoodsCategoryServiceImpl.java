@@ -16,6 +16,7 @@ import java.util.List;
  */
 @Service
 public class GoodsCategoryServiceImpl implements GoodsCategoryService {
+
     @Autowired
     private GoodsCategoryDao goodsCategoryDao;
 
@@ -78,4 +79,5 @@ public class GoodsCategoryServiceImpl implements GoodsCategoryService {
         List<Long> idList = SplitIdsUtil.splitStrIds(strIds);
         goodsCategoryDao.deleteByIds(idList);
     }
+
 }

@@ -16,6 +16,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/goodscategory")
 public class GoodsCategoryController {
+
     @Autowired
     private GoodsCategoryService goodsCategoryService;
 
@@ -23,7 +24,6 @@ public class GoodsCategoryController {
     public String memberList() {
         return "goodscategory/list";
     }
-
 
     @GetMapping("/add.html")
     public String addMember() {
@@ -73,4 +73,5 @@ public class GoodsCategoryController {
         result.setCount((long) categoryList.size());
         return result;
     }
+
 }

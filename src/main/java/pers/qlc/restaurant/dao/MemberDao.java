@@ -14,6 +14,7 @@ import java.util.List;
  */
 @Mapper
 public interface MemberDao {
+
     List<Member> findPage(Member condition);
 
     Member searchByPhone(Member member);
@@ -25,4 +26,5 @@ public interface MemberDao {
     int deleteByIds(List<Long> idList);
 
     int update(Member member);
+
 }

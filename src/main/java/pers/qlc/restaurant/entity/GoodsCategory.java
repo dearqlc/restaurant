@@ -1,10 +1,12 @@
 package pers.qlc.restaurant.entity;
 
 public class GoodsCategory extends BaseBean {
+
     /**
      * 菜品类型id
      */
     private Integer categoryId;
+
     /**
      * 菜品类型名称
      */
@@ -33,4 +35,5 @@ public class GoodsCategory extends BaseBean {
                 ", categoryName='" + categoryName + '\'' +
                 '}';
     }
+
 }

@@ -6,9 +6,13 @@ package pers.qlc.restaurant.entity;
  * @param <T>
  */
 public class Result<T> {
+
     private Integer code;
+
     private String msg;
+
     private T data;
+
     private Long count;
 
     public Integer getCode() {
@@ -52,4 +56,5 @@ public class Result<T> {
                 ", count=" + count +
                 '}';
     }
+
 }

@@ -12,6 +12,7 @@ import pers.qlc.restaurant.entity.Result;
  */
 
 public class ResultUtil {
+
     public static Result success(Object object) {
         Result result = new Result();
         result.setCode(ResultEnum.SUCCESS.getCode());
@@ -46,4 +47,5 @@ public class ResultUtil {
         result.setMsg(resultEnum.getMsg());
         return result;
     }
+
 }

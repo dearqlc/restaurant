@@ -15,6 +15,7 @@ import pers.qlc.restaurant.Enums.ResultEnum;
  * 原因：Spring这个框架只对抛出的异常是RuntimeException才做事务回滚，如果抛出Exception是不会进行事务回滚的
  */
 public class SysUserImplException extends RuntimeException {
+
     private Integer code;
 
     public SysUserImplException(ResultEnum resultEnum) {
@@ -29,4 +30,5 @@ public class SysUserImplException extends RuntimeException {
     public void setCode(Integer code) {
         this.code = code;
     }
+
 }

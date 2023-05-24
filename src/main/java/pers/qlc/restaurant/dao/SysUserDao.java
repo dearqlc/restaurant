@@ -8,6 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface SysUserDao extends tk.mybatis.mapper.common.Mapper<SysUser> {
+
     /**
      * 分页查询
      *
@@ -64,4 +65,5 @@ public interface SysUserDao extends tk.mybatis.mapper.common.Mapper<SysUser> {
      * @return
      */
     int deleteByIds(List<Long> ids);
+
 }

@@ -14,6 +14,7 @@ import java.util.List;
  */
 @Mapper
 public interface OrderDao {
+
     int insert(Order order);
 
     List<Order> findPage(CustomPageInfo<Order> pageInfo);
@@ -25,4 +26,5 @@ public interface OrderDao {
     int update(Order order);
 
     int updateByOrderCode(Order order);
+
 }

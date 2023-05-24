@@ -7,6 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface DeskDao extends tk.mybatis.mapper.common.Mapper<Desk> {
+
     List<Desk> findPage(Desk desk);
 
     Desk findById(Integer deskId);
@@ -18,4 +19,5 @@ public interface DeskDao extends tk.mybatis.mapper.common.Mapper<Desk> {
     int update(Desk desk);
 
     int deleteByIds(List<Integer> idList);
+
 }

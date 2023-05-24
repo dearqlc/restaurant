@@ -13,6 +13,7 @@ import pers.qlc.restaurant.entity.Member;
  */
 
 public interface MemberService {
+
     /**
      * 修改删除
      *

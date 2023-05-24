@@ -3,6 +3,7 @@ package pers.qlc.restaurant.exception;
 import pers.qlc.restaurant.Enums.ResultEnum;
 
 public class CustomException extends RuntimeException {
+
     private Integer code;
 
     public CustomException(ResultEnum resultEnum) {
@@ -17,4 +18,5 @@ public class CustomException extends RuntimeException {
     public void setCode(Integer code) {
         this.code = code;
     }
+
 }

@@ -14,8 +14,10 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/goods")
 public class GoodsController {
+
     @Autowired
     private GoodsService goodsService;
+
     @Autowired
     private GoodsCategoryService goodsCategoryService;
 
@@ -71,4 +73,5 @@ public class GoodsController {
         goodsService.deleteByIds(ids);
         return ResultUtil.success();
     }
+
 }

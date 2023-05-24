@@ -136,4 +136,5 @@ public class DeskServiceImpl implements DeskService {
         desk.setIdleStatus(0);
         deskDao.update(desk);
     }
+
 }

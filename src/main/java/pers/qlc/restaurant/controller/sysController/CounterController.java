@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/counter")
 public class CounterController {
+
     @GetMapping("/counterPage.html")
     @RequiresPermissions("counter:view")
     private String counterPage() {
         return "counter/counter";
     }
+
 }

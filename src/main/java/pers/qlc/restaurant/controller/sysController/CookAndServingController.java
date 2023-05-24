@@ -20,10 +20,13 @@ import java.util.List;
 @Controller
 @RequestMapping("/service")
 public class CookAndServingController {
+
     @Autowired
     private CookAndServingService cookAndServingService;
+
     @Autowired
     private OrderService orderService;
+
     @Autowired
     private OrderDetailService orderDetailService;
 
@@ -194,4 +197,5 @@ public class CookAndServingController {
         CustomPageInfo<OrderDetail> resultInfo = orderDetailService.findPage(pageInfo);
         return ResultUtil.success(resultInfo.getList(), resultInfo.getTotal());
     }
+
 }

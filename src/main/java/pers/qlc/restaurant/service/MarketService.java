@@ -10,4 +10,5 @@ package pers.qlc.restaurant.service;
  */
 
 public interface MarketService {
+
 }

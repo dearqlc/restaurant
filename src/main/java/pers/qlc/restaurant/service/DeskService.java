@@ -13,6 +13,7 @@ import pers.qlc.restaurant.entity.Desk;
  */
 
 public interface DeskService {
+
     /**
      * 分页查询桌位(可以加多条件)
      *
@@ -70,4 +71,5 @@ public interface DeskService {
      * @param desk
      */
     void logout(Desk desk);
+
 }

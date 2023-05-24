@@ -8,6 +8,7 @@ package pers.qlc.restaurant.Enums;
  */
 
 public enum ResultEnum {
+
     UNKNOWN_ERROR(-1, "未知错误!"),
     SUCCESS(200, "成功!"),
     USER_NO_FOUND(101, "账号未找到!"),
@@ -51,4 +52,5 @@ public enum ResultEnum {
     public void setMsg(String msg) {
         this.msg = msg;
     }
+
 }

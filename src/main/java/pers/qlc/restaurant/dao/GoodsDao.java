@@ -13,6 +13,7 @@ import java.util.List;
  */
 @Mapper
 public interface GoodsDao extends tk.mybatis.mapper.common.Mapper<Goods> {
+
     List<Goods> findPage(Goods goods);
 
     Goods findById(Integer goodsId);
@@ -26,4 +27,5 @@ public interface GoodsDao extends tk.mybatis.mapper.common.Mapper<Goods> {
     int update(Goods goods);
 
     int deleteByIds(List<Integer> idList);
+
 }

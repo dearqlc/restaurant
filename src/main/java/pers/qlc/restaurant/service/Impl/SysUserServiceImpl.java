@@ -27,12 +27,16 @@ import java.util.Set;
 @Service
 @Transactional
 public class SysUserServiceImpl implements SysUserService {
+
     @Autowired
     private SysUserDao sysUserDao;
+
     @Autowired
     private SysMenuDao sysMenuDao;
+
     @Autowired
     private SysRoleDao sysRoleDao;
+
     @Autowired
     private UserRoleDao userRoleDao;
 
@@ -227,4 +231,5 @@ public class SysUserServiceImpl implements SysUserService {
         user.setPassword(sysUser.getNewPwd());
         sysUserDao.update(user);
     }
+
 }

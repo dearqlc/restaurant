@@ -1,7 +1,9 @@
 package pers.qlc.restaurant.entity;
 
 public class UserRole {
+
     private Long userId;
+
     private Integer roleId;
 
     public Long getUserId() {
@@ -27,4 +29,5 @@ public class UserRole {
                 ", roleId=" + roleId +
                 '}';
     }
+
 }

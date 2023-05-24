@@ -97,4 +97,5 @@ public interface SysUserService {
     void resetPwd(SysUser sysUser);
 
     void updatePwd(SysUser sysUser);
+
 }

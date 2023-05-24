@@ -18,6 +18,7 @@ import java.util.Properties;
 
 @Configuration
 public class ShiroConfig {
+
     @Bean
     public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
@@ -91,4 +92,5 @@ public class ShiroConfig {
         exceptionResolver.setExceptionMappings(properties);
         return exceptionResolver;
     }
+
 }

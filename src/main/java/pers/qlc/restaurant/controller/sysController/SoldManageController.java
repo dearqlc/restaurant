@@ -16,6 +16,7 @@ import pers.qlc.restaurant.utils.ResultUtil;
 @Controller
 @RequestMapping("/sold")
 public class SoldManageController {
+
     @Autowired
     private OrderService orderService;
 
@@ -48,4 +49,5 @@ public class SoldManageController {
         CustomPageInfo<Order> resultInfo = orderService.findPage(pageInfo);
         return ResultUtil.success(resultInfo.getList(), resultInfo.getTotal());
     }
+
 }

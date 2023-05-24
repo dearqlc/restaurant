@@ -3,8 +3,11 @@ package pers.qlc.restaurant.entity.request;
 import pers.qlc.restaurant.entity.SysUser;
 
 public class UserRequest extends SysUser {
+
     private int pageNum;
+
     private int pageSize;
+
     private Integer roleId;
 
     public int getPageNum() {
@@ -30,4 +33,5 @@ public class UserRequest extends SysUser {
     public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
+
 }

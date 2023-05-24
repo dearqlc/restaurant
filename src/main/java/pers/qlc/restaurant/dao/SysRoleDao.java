@@ -15,8 +15,10 @@ import java.util.Set;
  */
 @Mapper
 public interface SysRoleDao extends tk.mybatis.mapper.common.Mapper<SysRole> {
+
     Set<String> findRoleNamesByUser(SysUser sysUser);
 
     List<SysRole> findAll();
+
 }
 

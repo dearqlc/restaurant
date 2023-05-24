@@ -14,6 +14,7 @@ import java.util.List;
  */
 @Mapper
 public interface MemberCategoryDao extends tk.mybatis.mapper.common.Mapper<MemberCategory> {
+
     List<MemberCategory> findAll();
 
     MemberCategory findById(Long id);
@@ -25,4 +26,5 @@ public interface MemberCategoryDao extends tk.mybatis.mapper.common.Mapper<Membe
     int deleteByIds(List<Long> idList);
 
     MemberCategory findByMcName(MemberCategory memberCategory);
+
 }

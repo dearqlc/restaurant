@@ -1,7 +1,9 @@
 package pers.qlc.restaurant.entity.chart;
 
 public class PeopleChart {
+
     private String dayHour;
+
     private Integer count;
 
     public String getDayHour() {
@@ -27,4 +29,5 @@ public class PeopleChart {
                 ", count=" + count +
                 '}';
     }
+
 }

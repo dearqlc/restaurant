@@ -15,14 +15,17 @@ import java.util.Map;
  */
 
 public class CustomPageInfo<T> extends PageInfo<T> {
+
     /**
      * 用于储存实体
      */
     private T t;
+
     /**
      * 排序方式
      */
     private String orderBy;
+
     /**
      * 条件
      */
@@ -69,4 +72,5 @@ public class CustomPageInfo<T> extends PageInfo<T> {
     public void setCondition(Map<String, Object> condition) {
         this.condition = condition;
     }
+
 }
